@@ -1,10 +1,25 @@
-const { lstat } = require('fs');
-const rl = require('readline');
+const size = {
+  b: 1,
+  KB: size[b] * 1000
+}
 
+console.log(size[KB]);
 
-const rl = createInterface
-rl
-  .questionAsync('howoasd')
-  .then((answer) => {
-    console.log(answer)
-  })
+linkedlist
+
+function stringify(obj) {
+  let cache = [];
+  let str = JSON.stringify(obj, function (key, value) {
+    if (typeof value === "object" && value !== null) {
+      if (cache.indexOf(value) !== -1) {
+        // Circular reference found, discard key
+        return;
+      }
+      // Store value in our collection
+      cache.push(value);
+    }
+    return value;
+  });
+  cache = null; // reset the cache
+  return str;
+}
